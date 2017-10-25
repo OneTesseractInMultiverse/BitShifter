@@ -1,0 +1,3 @@
+https://stackoverflow.com/questions/34692600/how-to-host-multiple-flask-apps-under-a-single-domain-hosted-on-nginx
+
+http://cryptopals.com/
