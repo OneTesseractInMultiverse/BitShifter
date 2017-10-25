@@ -1,57 +1,25 @@
-# GarnetREST
+# BitShifter Identity Server
 
 Author: Pedro Guzmán (pedro@subvertic.com)
 
-Version: 1.0.0
+Version: 0.1 
 
-License: MIT License
+BitShifter is an Identity Management Server that provides a simple, yet powerful
+authentication and authorization infrastructure for multi-tenant cloud-based 
+applications. 
 
-## About GarnetREST
+The server exposes a very simple claim-based schema that allow users to have specific
+roles in a given organization. The design of assumnes users are independent of 
+any organization but can performa actions within one or more organizations by 
+acquiring entitlements that establish a set of roles and actions a given user 
+can perform in a given organization.  
 
-An implementation of a Flask-based Boilerplate for REST APIs and REST-based Microservices. The 
-idea behind GarnetREST is to provide a base organization schema and some basic functionality that is 
-present in most Web API Applications based on RESTful principles. GarnetREST provides:
+The data model is implemented through graphs which allow fast retrieval of claims
+and localized queries. For example:
 
-* Support for MongoDB (Soon a version for Neo4j Graph Database will also be available)
-* Support for Json Web Token (JWT) Generation and Authentication
-* User account creation and management out-of-the-box
+```javascript
 
-====
+(user:1) -[:isSysAdmin]-> (org:3)
 
-## Installation
-
-GarnetREST incorporates a set of cryptographic tools built-in. These tools are built on top of
-PyNaCl which is a Python binding for libsodium which is a cryptographic library developed by several 
-renowned cryptographers including Daniel J. Bernstein.
-
-First you must install libsodium using one of the following methods:
-
-* Mac OSX (Using homebrew): 
-
-```bash
-brew install libsodium
 ```
-
-* Linux (APT):
-```bash
-#!/bin/bash
-sudo add-apt-repository ppa:chris-lea/libsodium;
-sudo echo "deb http://ppa.launchpad.net/chris-lea/libsodium/ubuntu trusty main" >> /etc/apt/sources.list;
-sudo echo "deb-src http://ppa.launchpad.net/chris-lea/libsodium/ubuntu trusty main" >> /etc/apt/sources.list;
-sudo apt-get update && sudo apt-get install libsodium-dev;
-```
-
-Or if you want to build it from source just download the sources from [here](https://download.libsodium.org/libsodium/releases/) 
-and extract it. Then move into the extracted folder and run:
-
-```bash
-./configure
-make
-make check
-sudo make install
-```
-
-* On Windows you can find pre-built libraries [here](https://download.libsodium.org/libsodium/releases/)
-
-
 
