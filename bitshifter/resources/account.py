@@ -1,6 +1,6 @@
-from thrive import app
+from bitshifter import app
 from flask import jsonify, request
-from thrive.models.user import build_account, get_user_by_username
+from bitshifter.models.user import build_account, get_user_by_username
 from mongoengine import ValidationError, NotUniqueError
 import sys
 
@@ -8,8 +8,8 @@ import sys
 # --------------------------------------------------------------------------
 # POST: /ACCOUNT
 # --------------------------------------------------------------------------
-@app.route('/account', methods=['POST'])
-def post_account():
+@app.route('/_account', methods=['POST'])
+def post_user():
 
     # First we verify the request is an actual json request. If not, then we
     # responded with a HTTP 400 Bad Request result code.

@@ -1,4 +1,4 @@
-from thrive import app
+from bitshifter import app
 from flask_login import login_user, login_required
 from flask import jsonify, request, render_template
 

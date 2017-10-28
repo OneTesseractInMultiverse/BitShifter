@@ -1,8 +1,8 @@
-from thrive import app
+from bitshifter import app
 from flask import render_template, redirect, url_for
 from flask import request, jsonify, session
 from flask_login import login_user, logout_user, login_required
-from thrive.models.user import User, get_user_by_username
+from bitshifter.models.user import User, get_user_by_username
 import uuid
 
 

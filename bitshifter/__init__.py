@@ -81,7 +81,7 @@ url = os.environ.get('GRAPHENEDB_URL', 'http://hobby-kckcaodehcobgbkeefncldpl.db
 neo4j_username = os.environ.get('NEO4J_USERNAME')
 neo4j_password = os.environ.get('NEO4J_PASSWORD')
 
-graph = Graph(url + '/db/data/', username='thrive', password='b.kceYLqvbuDjK.C7JNh99Ea4RHXoFV')
+graph = Graph(url + '/db/data/', username='bitshifter', password='b.kceYLqvbuDjK.C7JNh99Ea4RHXoFV')
 
 # ------------------------------------------------------------------------------
 # SETUP JWT
@@ -92,5 +92,5 @@ jwt = JWTManager(app)
 # ------------------------------------------------------------------------------
 # LOAD ENDPOINTS
 # ------------------------------------------------------------------------------
-from thrive.endpoints import *
-from thrive.controllers import *
+from bitshifter.resources import *
+from bitshifter.controllers import *

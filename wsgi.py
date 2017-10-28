@@ -1,4 +1,4 @@
-from thrive import app
+from bitshifter import app
 
 if __name__ == "__main__":
     app.run()

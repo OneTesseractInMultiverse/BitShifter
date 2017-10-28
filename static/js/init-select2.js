@@ -63,7 +63,7 @@
         $(".js-data-example-ajax").select2({
             placeholder: "Choose your github repo",
             ajax: {
-                url: 'https://api.github.com/search/repositories',
+                url: 'https://resources.github.com/search/repositories',
                 dataType: 'json',
                 delay: 250,
                 data: function (params) {

@@ -1,4 +1,4 @@
-from thrive import app
+from bitshifter import app
 from flask import jsonify, request
 
 
@@ -23,6 +23,7 @@ def post_org(org_id, user_id):
         
     pass
 
+
 # --------------------------------------------------------------------------
 # GET: /API/ORGS
 # --------------------------------------------------------------------------
@@ -31,6 +32,7 @@ def post_org(org_id, user_id):
 def get_orgs(org_id, user_id):
     pass
 
+
 # --------------------------------------------------------------------------
 # GET: /API/ORG
 # --------------------------------------------------------------------------
@@ -38,12 +40,14 @@ def get_orgs(org_id, user_id):
 def get_org(org_id, user_id, entitlement_id):
     pass
 
+
 # --------------------------------------------------------------------------
 # PUT: /API/ORG/<ORG_ID>
 # --------------------------------------------------------------------------
 @app.route('/_org/<org_id>/_user/<user_id>/_entitlement/<entitlement_id>', methods=['PUT'])
 def put_org(org_id, user_id, entitlement_id):
     pass
+
 
 # --------------------------------------------------------------------------
 # DELETE: /API/ORG/<ORG_ID>

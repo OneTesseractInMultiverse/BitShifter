@@ -1,5 +1,5 @@
 import os
-from thrive import app
+from bitshifter import app
 
 __author__ = "Pedro Guzman (pedro@subvertic.com)"
 __version__ = "1.0.0"
