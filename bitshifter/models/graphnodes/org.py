@@ -1,4 +1,5 @@
 from bitshifter import graph
+from bitshifter.extensions.time import timestamp
 import uuid
 
 # ------------------------------------------------------------------------------
@@ -41,7 +42,11 @@ class Organization:
     # METHOD LOAD 
     # --------------------------------------------------------------------------
     def __load__(self):
-        if self.org_id is not None:
+        """
+            Given an organization id, it fetches the data that currently exists
+            in the Graph 
+        """
+        if self.id is not None:
             org = graph.find_one('Organization', 'id', self.id)
             if 'name' in org:
                 self.name = org['name']
@@ -57,18 +62,35 @@ class Organization:
     # METHOD AS NODE
     # --------------------------------------------------------------------------
     def as_node(self):
-        return graph.find_one('Organization', 'id', self.id)
+        """
+            Gets the Node reference for the current organization. If the org hasn't
+            been persisted yet, then this will return None. 
+        """
+        if self.is_persistent:
+            return graph.find_one('Organization', 'id', self.id)
+        return None
+    
     
     # --------------------------------------------------------------------------
     # METHOD IS STATE VALID
     # --------------------------------------------------------------------------
-    def is_state_valid(self):
-        pass
+    def state_is_valid(self):
+        """
+            Verifies if all the required properties that must be present are present
+            if some required property is missing, then this will return false.
+        """
+        if self.name is not None  and self.description is not None and self.email is not None and self.domain is not None:
+            return True
+        return False
     
     # --------------------------------------------------------------------------
     # METHOD SAVE
     # --------------------------------------------------------------------------
     def save(self):
+        """
+            Persists or updates the persisted representation of an organization 
+            in the persistent graph. 
+        """
         
         if self.id is None:
             self.id = uuid.uuid4()
@@ -89,5 +111,7 @@ class Organization:
         
         # Persist changes in the Node
         org.push()
-        
+        self.is_persistent = True
         return True
+        
+        
